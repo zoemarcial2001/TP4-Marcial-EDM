@@ -1,0 +1,83 @@
+.navmio{
+	background:#0000ff;	
+	padding: 8px 16px 8px 16px;
+	text-align: center;
+	color: #ffffff;
+}
+
+
+body{
+	background-image: url("fondo2.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixer;
+	background-position: center center;
+}
+
+.form{
+	background: #ffffff;
+}
+
+.table{
+	background: #b0b0ff;
+}
+
+.tables{
+	background:#0000ff;	
+	text-align: center;
+	color: #ffffff;
+}
+
+.form-login {
+	width: 400px;
+	height: 450px;
+	background: #0080ff;
+	margin-top: 90px;
+	padding: 20px 30px;
+	color: #ffffff;
+}
+
+.controls {
+  width: 100%;
+  border: 1px solid #017bab;
+  margin-bottom: 15px;
+  padding: 11px 10px;
+  background: #8080ff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-login h5 {
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 30px;
+}
+
+.form-login p{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid;
+    color: #ffffff;
+}
+
+.buttons {
+    width: 100%;
+    height: 40px;
+    background: #0000ff;
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.form-login a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form-prod{
+	
+}
