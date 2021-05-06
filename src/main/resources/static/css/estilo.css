@@ -7,15 +7,27 @@
 
 
 body{
-	background-image: url("fondo2.jpeg");
+	background-image: url("fondo3.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixer;
 	background-position: center center;
 }
-
+.columna{
+	position: sticky;
+	left: 0;
+	background: #7575ff;
+}
 .form{
 	background: #ffffff;
+}
+.form h1{
+	margin: 0;
+    text-align: center;
+    color: #ffffff;
+    height: 60px;
+    background: #0000ff;
+    margin-bottom: 20px;
 }
 
 .table{
@@ -78,6 +90,3 @@ body{
     font-size: 14px;
 }
 
-.form-prod{
-	
-}

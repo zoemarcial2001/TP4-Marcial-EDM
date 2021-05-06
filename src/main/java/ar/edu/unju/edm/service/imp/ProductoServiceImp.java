@@ -37,37 +37,65 @@ public class ProductoServiceImp implements IProductoService{
 	}
 
 	@Override
-	public void modificarProducto(Producto productoAModificar) {
+	public void modificarProducto(Producto productoModificado) {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < listaDeProductos.size(); i++){
+		    if (listaDeProductos.get(i).getCodProducto() == productoModificado.getCodProducto()) {
+		    	listaDeProductos.set(i, productoModificado);
+		    }
+		}	
 	}
-	@Override
-	public void eliminarProducto(Producto productoAEliminar) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	@Override
 	public Producto obtenerUnProducto(String nombreProducto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public List<Producto> obtenerTodosProductos() {
 		// TODO Auto-generated method stub
 		return listaDeProductos;
 	}
 
-	@Override
-	public Producto obtenerProductoNuevo() {
+	
+	//public Producto obtenerProductoNuevo() {
 		// TODO Auto-generated method stub
+		//return unProducto;
+	//}
+
+	
+	//public Producto obtenerUltimoProducto() {
+		// TODO Auto-generated method stub
+		//int i = listaDeProductos.size() - 1;
+		//return listaDeProductos.get(i);
+	//}
+
+	@Override
+	public Producto encontrarUnProducto(int codigo) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < listaDeProductos.size(); i++){
+		    if (listaDeProductos.get(i).getCodProducto() == codigo) {
+		    	unProducto = listaDeProductos.get(i);
+		    }
+		}
 		return unProducto;
 	}
 
 	@Override
-	public Producto obtenerUltimoProducto() {
+	public Producto obtenerProductoNuevo() {
 		// TODO Auto-generated method stub
-		int i = listaDeProductos.size() - 1;
-		return listaDeProductos.get(i);
+		return null;
+	}
+
+	@Override
+	public void eliminarProducto(int id) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < listaDeProductos.size(); i++){
+		    if (listaDeProductos.get(i).getCodProducto() == id) {
+		    	listaDeProductos.remove(i);
+		    }
+		}	
 	}
 
 
