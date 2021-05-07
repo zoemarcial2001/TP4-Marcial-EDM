@@ -112,6 +112,14 @@ public class Producto {
 		return "Producto [codProducto=" + codProducto + ", nombre=" + nombre + ", precio=" + precio + ", marca=" + marca
 				+ ", stock=" + stock + "]";
 	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	
 	
 }
