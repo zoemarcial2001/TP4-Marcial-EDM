@@ -15,88 +15,66 @@ import ar.edu.unju.edm.util.ListadoProductos;
 public class ProductoServiceImp implements IProductoService{
 
 	private static final Log LOGGER = LogFactory.getLog(ProductoServiceImp.class);
-	//como se hace la solucion del problema
 	
 	@Autowired
 	Producto unProducto;
 	
 	//ArrayList<Producto> listaDeProductos = new ArrayList<Producto>();
-	private List<Producto> listaDeProductos = ListadoProductos.productos;
+	private List<Producto> listadoProductos = ListadoProductos.productos;
 	
 	@Override
 	public void guardarProducto(Producto unProducto) {
 		// TODO Auto-generated method stub
 		
 		System.out.println(unProducto.getNombre());
-		listaDeProductos.add(unProducto);
+		listadoProductos.add(unProducto);
 		
-		System.out.println(listaDeProductos.size());
+		System.out.println(listadoProductos.size());
 
 		LOGGER.info("METHOD: ingresando a Guardar Producto");
-		LOGGER.info("RESULT: guardado " + listaDeProductos.get(listaDeProductos.size()-1).getNombre());
-	}
-
-	@Override
-	public void modificarProducto(Producto productoModificado) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < listaDeProductos.size(); i++){
-		    if (listaDeProductos.get(i).getCodProducto() == productoModificado.getCodProducto()) {
-		    	listaDeProductos.set(i, productoModificado);
-		    }
-		}	
+		LOGGER.info("RESULT: guardado " + listadoProductos.get(listadoProductos.size()-1).getNombre());
 	}
 	
 	@Override
-	public Producto obtenerUnProducto(String nombreProducto) {
+	public Producto crearProducto() {
 		// TODO Auto-generated method stub
-		return null;
+		return unProducto;
 	}
 	
 	@Override
 	public List<Producto> obtenerTodosProductos() {
 		// TODO Auto-generated method stub
-		return listaDeProductos;
+		return listadoProductos;
 	}
-
 	
-	//public Producto obtenerProductoNuevo() {
-		// TODO Auto-generated method stub
-		//return unProducto;
-	//}
-
-	
-	//public Producto obtenerUltimoProducto() {
-		// TODO Auto-generated method stub
-		//int i = listaDeProductos.size() - 1;
-		//return listaDeProductos.get(i);
-	//}
-
 	@Override
 	public Producto encontrarUnProducto(int codigo) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < listaDeProductos.size(); i++){
-		    if (listaDeProductos.get(i).getCodProducto() == codigo) {
-		    	unProducto = listaDeProductos.get(i);
+		for (int i = 0; i < listadoProductos.size(); i++){
+		    if (listadoProductos.get(i).getCodProducto() == codigo) {
+		    	unProducto = listadoProductos.get(i);
 		    }
 		}
 		return unProducto;
 	}
 
 	@Override
-	public Producto obtenerProductoNuevo() {
+	public void modificarProducto(Producto productoModificado) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void eliminarProducto(int id) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < listaDeProductos.size(); i++){
-		    if (listaDeProductos.get(i).getCodProducto() == id) {
-		    	listaDeProductos.remove(i);
+		for (int i = 0; i < listadoProductos.size(); i++){
+		    if (listadoProductos.get(i).getCodProducto() == productoModificado.getCodProducto()) {
+		    	listadoProductos.set(i, productoModificado);
 		    }
 		}	
 	}
-
+	@Override
+	public void eliminarProducto(int id) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < listadoProductos.size(); i++){
+		    if (listadoProductos.get(i).getCodProducto() == id) {
+		    	listadoProductos.remove(i);
+		    }
+		}	
+	}
 
 }

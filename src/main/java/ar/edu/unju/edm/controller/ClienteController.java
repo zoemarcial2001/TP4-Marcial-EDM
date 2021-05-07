@@ -30,6 +30,16 @@ public class ClienteController {
 		return("cliente");
 	}
 	
+	@PostMapping("/cliente/guardar")
+	public String guardarNuevoProducto(@ModelAttribute("unCliente") Cliente nuevoCliente, Model model) {		
+		LOGGER.info("METHOD: ingresando el metodo Guardar");
+		clienteService.guardarCliente(nuevoCliente);		
+		LOGGER.info("Tamaño del Listado: "+ clienteService.obtenerTodosClientes().size());
+		//llamo a este método para que puedan ver cómo trabajar con fechas
+		trabajarConFechas();
+		return "redirect:/cliente/mostrar";
+	}
+	
 	@GetMapping("/cliente/editar/{nroDocumento}")
 	public String editarCliente(Model model, @PathVariable(name="nroDocumento") int dni) throws Exception {
 		try {
@@ -44,16 +54,6 @@ public class ClienteController {
 		}
 		model.addAttribute("clientes", clienteService.obtenerTodosClientes());
 		return("cliente");
-	}
-
-	@PostMapping("/cliente/guardar")
-	public String guardarNuevoProducto(@ModelAttribute("unCliente") Cliente nuevoCliente, Model model) {		
-		LOGGER.info("METHOD: ingresando el metodo Guardar");
-		clienteService.guardarCliente(nuevoCliente);		
-		LOGGER.info("Tamaño del Listado: "+ clienteService.obtenerTodosClientes().size());
-		//llamo a este método para que puedan ver cómo trabajar con fechas
-		trabajarConFechas();
-		return "redirect:/cliente/mostrar";
 	}
 
 	@PostMapping("/cliente/modificar")

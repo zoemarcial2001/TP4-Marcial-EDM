@@ -11,12 +11,12 @@ import ar.edu.unju.edm.service.IProductoService;
 public class VentaController {
 
 	@Autowired
-	IProductoService iProductoService;
+	IProductoService productoService;
 	
 	@GetMapping("/producto/ventas")
 	public String cargarVentas(Model model) {
-		model.addAttribute("unProducto", iProductoService.obtenerProductoNuevo());
-		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
+		model.addAttribute("unProducto", productoService.crearProducto());
+		model.addAttribute("productos", productoService.obtenerTodosProductos());
 		return("ventas");
 	}
 }

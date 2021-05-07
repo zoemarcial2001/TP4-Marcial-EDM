@@ -53,7 +53,7 @@
 			</div>
 	 </div>
 		<div>
-			<button class="buttons" type="submit" value="Agregar">Agregar</button>
+			<input type="submit" class="buttons" th:value="${editMode}?'Modificar Producto':'Crear Producto'">
 		</div>
 		
 	</form>

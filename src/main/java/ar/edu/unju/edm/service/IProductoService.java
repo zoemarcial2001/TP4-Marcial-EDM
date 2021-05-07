@@ -12,11 +12,11 @@ public interface IProductoService {
 	//no contiene codigo solo dice qué hace con Producto
 
 	public void guardarProducto(Producto unProducto);
-	public void modificarProducto(Producto productoModificado);
-	public Producto obtenerUnProducto(String nombreProducto);
+	public Producto crearProducto();
 	public List<Producto> obtenerTodosProductos();
 	public Producto encontrarUnProducto(int codigo);
-	public Producto obtenerProductoNuevo();
+	public void modificarProducto(Producto productoModificado);
 	public void eliminarProducto(int id);
+	
 
 }
