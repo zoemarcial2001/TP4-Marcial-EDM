@@ -19,6 +19,7 @@ public class ProductoController {
 	@Qualifier("unaImp")
 	IProductoService productoService;
 	
+	
 	@GetMapping("/producto/mostrar")
 	public String cargarProducto(Model model) {
 		model.addAttribute("unProducto", productoService.crearProducto());
