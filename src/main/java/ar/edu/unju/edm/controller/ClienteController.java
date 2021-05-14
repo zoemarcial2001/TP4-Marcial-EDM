@@ -20,7 +20,7 @@ public class ClienteController {
 	private static final Log LOGGER = LogFactory.getLog(ClienteController.class);
 	
 	@Autowired
-	@Qualifier("unImp")
+	@Qualifier("unaImp")
 	IClienteService clienteService;
 	
 	@GetMapping("/cliente/mostrar")
