@@ -30,6 +30,7 @@ public class ClienteController {
 		return("cliente");
 	}
 	
+	
 	@PostMapping("/cliente/guardar")
 	public String guardarNuevoProducto(@ModelAttribute("unCliente") Cliente nuevoCliente, Model model) {		
 		LOGGER.info("METHOD: ingresando el metodo Guardar");
