@@ -11,7 +11,7 @@ import ar.edu.unju.edm.repository.IClienteDAO;
 import ar.edu.unju.edm.service.IClienteService;
 
 @Service
-@Qualifier("unaImp")
+@Qualifier("impmysql")
 public class ClienteServiceMySQL implements IClienteService{
 
 	@Autowired
@@ -23,7 +23,7 @@ public class ClienteServiceMySQL implements IClienteService{
 	@Override
 	public void guardarCliente(Cliente unCliente) {
 		// TODO Auto-generated method stub
-		
+		clienteDAO.save(unCliente);
 	}
 
 	@Override
@@ -39,20 +39,21 @@ public class ClienteServiceMySQL implements IClienteService{
 	}
 
 	@Override
-	public Cliente encontrarUnCliente(int dni) {
+	public Cliente encontrarUnCliente(int dni) throws Exception{
 		// TODO Auto-generated method stub
-		return null;
+		return clienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("el cliente no fue encontrado"));
 	}
 
 	@Override
 	public void modificarCliente(Cliente clienteModificado) {
 		// TODO Auto-generated method stub
-		
+		clienteDAO.save(unCliente);
 	}
 
 	@Override
-	public void eliminarCliente(int id) {
+	public void eliminarCliente(int dni) throws Exception {
 		// TODO Auto-generated method stub
-		
+		Cliente clienteEliminar = clienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("el cliente no fue encontrado"));
+		clienteDAO.delete(clienteEliminar);
 	}
 }

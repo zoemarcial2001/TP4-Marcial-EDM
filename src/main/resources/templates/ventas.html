@@ -7,7 +7,7 @@
 
 <meta charset="UTF-8">
 
-<title>Insert title here</title>
+<title>Ventas</title>
 
 </head>
 <body>
@@ -17,7 +17,7 @@
 			<div th:each="c : ${productos}">
 				<div class="col-md-4">
 					<div class="card" style="width: 18rem;">
-  						<img src="/css/fondo.jpg" class="card-img-top" alt="hola">
+  						<img src="/css/img/iconoprod.png" class="card-img-top" alt="hola">
 						<div class="card-body">
 							<h5 class="card-title" th:text="${'producto - ' + c.codProducto}">Id</h5>
 							<p class="card-text" th:text="${c.nombre}">Name</p>

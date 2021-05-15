@@ -14,9 +14,9 @@ public interface IProductoService {
 	public void guardarProducto(Producto unProducto);
 	public Producto crearProducto();
 	public List<Producto> obtenerTodosProductos();
-	public Producto encontrarUnProducto(int codigo);
+	public Producto encontrarUnProducto(int codigo) throws Exception;
 	public void modificarProducto(Producto productoModificado);
-	public void eliminarProducto(int id);
+	public void eliminarProducto(int id) throws Exception;
 	
 
 }

@@ -20,17 +20,21 @@ import org.springframework.stereotype.Component;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="NumeroDocumento")
+	@Column
+	private Integer idCliente;
+	@Column
 	private int nroDocumento;
-	
+	@Column
+	private String tipoDocumento;
+	@Column
+	private String nombre;
+	@Column 
+	private String apellido;
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
-	
 	//Calendar
 	//private Date fechaUltimCompra = new Date();
-	@Column
-	private String tipoDocumento;
 	@Column
 	private int codigoAreaTelefono;
 	@Column
@@ -42,6 +46,32 @@ public class Cliente {
 	private LocalDate fechaUltimaCompra;
 	@Column
 	private String password;
+
+	
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
 	public LocalDate getFechaUltimaCompra() {
 		return fechaUltimaCompra;

@@ -2,8 +2,6 @@ package ar.edu.unju.edm.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,8 +13,7 @@ import org.springframework.stereotype.Component;
 public class Producto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="CodProducto")
+	@Column
 	private int codProducto;
 	@Column
 	private String nombre;

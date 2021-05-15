@@ -23,7 +23,7 @@ public class ProductoServiceMySQL implements IProductoService{
 	@Override
 	public void guardarProducto(Producto unProducto) {
 		// TODO Auto-generated method stub
-		
+		productoDAO.save(unProducto);
 	}
 
 	@Override
@@ -39,21 +39,22 @@ public class ProductoServiceMySQL implements IProductoService{
 	}
 
 	@Override
-	public Producto encontrarUnProducto(int codigo) {
+	public Producto encontrarUnProducto(int codigo) throws Exception{
 		// TODO Auto-generated method stub
-		return null;
+		return productoDAO.findById(codigo).orElseThrow(()->new Exception("el producto no existe"));
 	}
 
 	@Override
 	public void modificarProducto(Producto productoModificado) {
 		// TODO Auto-generated method stub
-		
+		productoDAO.save(unProducto);
 	}
 
 	@Override
-	public void eliminarProducto(int id) {
+	public void eliminarProducto(int id) throws Exception{
 		// TODO Auto-generated method stub
-		
+		Producto productoEliminar = productoDAO.findById(id).orElseThrow(()->new Exception("el producto no existe"));
+		productoDAO.delete(productoEliminar);
 	}
 
 }

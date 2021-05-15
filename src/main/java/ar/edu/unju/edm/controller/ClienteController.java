@@ -20,7 +20,7 @@ public class ClienteController {
 	private static final Log LOGGER = LogFactory.getLog(ClienteController.class);
 	
 	@Autowired
-	@Qualifier("unaImp")
+	@Qualifier("impmysql")
 	IClienteService clienteService;
 	
 	@GetMapping("/cliente/mostrar")
@@ -75,9 +75,9 @@ public class ClienteController {
 		return("cliente");
 	}
 	
-	@GetMapping("/cliente/eliminarCliente/{id}")
-	public String eliminarCliente(Model model, @PathVariable(name="id") int id) {		
-		try {			clienteService.eliminarCliente(id);			
+	@GetMapping("/cliente/eliminarCliente/{dni}")
+	public String eliminarCliente(Model model, @PathVariable(name="dni") int dni) {		
+		try {			clienteService.eliminarCliente(dni);			
 		}
 		catch(Exception e){
 			model.addAttribute("listErrorMessage",e.getMessage());
