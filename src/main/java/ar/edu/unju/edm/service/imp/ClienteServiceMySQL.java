@@ -49,7 +49,7 @@ public class ClienteServiceMySQL implements IClienteService{
 		// TODO Auto-generated method stub
 		Cliente clienteAModificar = clienteDAO.findByNroDocumento(clienteModificado.getNroDocumento()).orElseThrow(()->new Exception("El Cliente no fue encontrado"));
 		cambiarCliente(clienteModificado, clienteAModificar);
-		clienteDAO.save(unCliente);
+		clienteDAO.save(clienteAModificar);
 	}
 	
 	private void cambiarCliente(Cliente desde, Cliente hacia) {
@@ -60,7 +60,6 @@ public class ClienteServiceMySQL implements IClienteService{
 		hacia.setCodigoAreaTelefono(desde.getCodigoAreaTelefono());
 		hacia.setNumTelefono(desde.getNumTelefono());
 		hacia.setEmail(desde.getEmail());
-		hacia.setPassword(desde.getPassword());
 		//observen que NO se ha cambiado el id, ya que ese atributo no debería permitirse cambiar
 	}
 

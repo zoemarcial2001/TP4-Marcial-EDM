@@ -49,7 +49,7 @@ public class ProductoServiceMySQL implements IProductoService{
 		// TODO Auto-generated method stub
 		Producto productoAModificar = productoDAO.findByCodProducto(productoModificado.getCodProducto()).orElseThrow(()->new Exception("El Cliente no fue encontrado"));
 		cambiarProducto(productoModificado, productoAModificar);
-		productoDAO.save(unProducto);
+		productoDAO.save(productoAModificar);
 	}
 	
 	private void cambiarProducto(Producto desde, Producto hacia) {
