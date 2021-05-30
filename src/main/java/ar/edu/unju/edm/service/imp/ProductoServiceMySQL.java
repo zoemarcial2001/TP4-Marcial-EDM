@@ -39,15 +39,27 @@ public class ProductoServiceMySQL implements IProductoService{
 	}
 
 	@Override
-	public Producto encontrarUnProducto(int codigo) throws Exception{
+	public Producto encontrarUnProducto(int codProducto) throws Exception{
 		// TODO Auto-generated method stub
-		return productoDAO.findById(codigo).orElseThrow(()->new Exception("el producto no existe"));
+		return productoDAO.findById(codProducto).orElseThrow(()->new Exception("el producto no existe"));
 	}
 
 	@Override
-	public void modificarProducto(Producto productoModificado) {
+	public void modificarProducto(Producto productoModificado) throws Exception {
 		// TODO Auto-generated method stub
+		Producto productoAModificar = productoDAO.findByCodProducto(productoModificado.getCodProducto()).orElseThrow(()->new Exception("El Cliente no fue encontrado"));
+		cambiarProducto(productoModificado, productoAModificar);
 		productoDAO.save(unProducto);
+	}
+	
+	private void cambiarProducto(Producto desde, Producto hacia) {
+		//observen que vamos a pasar todos los atributos del cliente que viene, hacia el cliente que ya está en la BD
+		hacia.setDescripcion(desde.getDescripcion());
+		hacia.setMarca(desde.getMarca());
+		hacia.setNombre(desde.getNombre());
+		hacia.setPrecio(desde.getPrecio());
+		hacia.setStock(desde.getStock());
+		//observen que NO se ha cambiado el id, ya que ese atributo no debería permitirse cambiar
 	}
 
 	@Override

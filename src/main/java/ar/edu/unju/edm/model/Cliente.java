@@ -10,9 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
+
 
 @Entity
 @Table (name="CLIENTES")
@@ -22,13 +27,19 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer idCliente;
+	
 	@Column
+	@NotNull(message="debe ingresar su documento")
+	@Min(1000000)
+	@Max(999999999)
 	private int nroDocumento;
 	@Column
 	private String tipoDocumento;
 	@Column
+	@NotBlank(message="debe ingresar su nombre")
 	private String nombre;
 	@Column 
+	@NotBlank(message="debe ingresar su apellido")
 	private String apellido;
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -47,6 +58,9 @@ public class Cliente {
 	@Column
 	private String password;
 
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Integer getIdCliente() {
 		return idCliente;
@@ -81,9 +95,6 @@ public class Cliente {
 		this.fechaUltimaCompra = fechaUltimaCompra;
 	}
 
-	public Cliente() {
-		// TODO Auto-generated constructor stub
-	}
 	public int getNroDocumento() {
 		return nroDocumento;
 	}

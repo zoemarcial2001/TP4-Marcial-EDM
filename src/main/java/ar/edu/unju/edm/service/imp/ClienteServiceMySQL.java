@@ -45,9 +45,23 @@ public class ClienteServiceMySQL implements IClienteService{
 	}
 
 	@Override
-	public void modificarCliente(Cliente clienteModificado) {
+	public void modificarCliente(Cliente clienteModificado) throws Exception{
 		// TODO Auto-generated method stub
+		Cliente clienteAModificar = clienteDAO.findByNroDocumento(clienteModificado.getNroDocumento()).orElseThrow(()->new Exception("El Cliente no fue encontrado"));
+		cambiarCliente(clienteModificado, clienteAModificar);
 		clienteDAO.save(unCliente);
+	}
+	
+	private void cambiarCliente(Cliente desde, Cliente hacia) {
+		//observen que vamos a pasar todos los atributos del cliente que viene, hacia el cliente que ya está en la BD
+		hacia.setApellido(desde.getApellido());
+		hacia.setNombre(desde.getNombre());
+		hacia.setFechaNacimiento(desde.getFechaNacimiento());
+		hacia.setCodigoAreaTelefono(desde.getCodigoAreaTelefono());
+		hacia.setNumTelefono(desde.getNumTelefono());
+		hacia.setEmail(desde.getEmail());
+		hacia.setPassword(desde.getPassword());
+		//observen que NO se ha cambiado el id, ya que ese atributo no debería permitirse cambiar
 	}
 
 	@Override

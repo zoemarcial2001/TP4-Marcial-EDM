@@ -1,5 +1,6 @@
 package ar.edu.unju.edm.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,6 +26,10 @@ public class Producto {
 	private int stock;
 	@Column
 	private String descripcion;
+	
+	//listado de ventas no obligatorio 
+	//@ManyToOne(cascade = CascadeType.ALL)
+	//List<Venta> ventas;
 	
 	public Producto() {
 		// TODO Auto-generated constructor stub

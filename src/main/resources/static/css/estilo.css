@@ -13,6 +13,7 @@ body{
 	background-attachment: fixer;
 	background-position: center center;
 }
+
 .columna{
 	position: sticky;
 	left: 0;
@@ -33,13 +34,11 @@ body{
 .table{
 	background: #b0b0ff;
 }
-
 .tables{
 	background:#0000ff;	
 	text-align: center;
 	color: #ffffff;
 }
-
 .form-login {
 	width: 400px;
 	height: 450px;
@@ -48,7 +47,6 @@ body{
 	padding: 20px 30px;
 	color: #ffffff;
 }
-
 .controls {
   width: 100%;
   border: 1px solid #017bab;
@@ -58,7 +56,6 @@ body{
   font-size: 14px;
   font-weight: bold;
 }
-
 .form-login h5 {
     margin: 0;
     text-align: center;
@@ -67,14 +64,12 @@ body{
     border-bottom: 1px solid;
     font-size: 30px;
 }
-
 .form-login p{
     height: 40px;
     text-align: center;
     border-bottom: 1px solid;
     color: #ffffff;
 }
-
 .buttons {
     width: 100%;
     height: 40px;
@@ -83,10 +78,8 @@ body{
     color: white;
     margin-bottom: 16px;
 }
-
 .form-login a {
     color: #ffffff;
     text-decoration: none;
     font-size: 14px;
 }
-
