@@ -9,15 +9,14 @@
 </head>
 <body>
 <div class="container">
-<div th:insert="layouts/header :: header"></div>
 <section class=form-login>
-<form id="formHome" method="post">
+<form th:action="@{/login}"	id="formHome" method="post">
           <h5>Login</h5>
           <label for="IdUsuario">Usuario</label>
-          <input class="controls" type="text" id="IdUsuario">
+          <input class="controls" type="text" id="IdUsuario" name="correo">
       <br>
           <label for="contraseña">Contraseña</label>
-          <input class="controls" type="password" id="contraseña">
+          <input class="controls" type="password" id="contraseña" name="password">
       <br>
       
       <div>

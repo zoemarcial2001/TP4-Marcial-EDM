@@ -20,19 +20,18 @@ import org.springframework.stereotype.Component;
 @Table(name="ventas")
 public class Venta {
 
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "codProducto")
-	private Producto producto;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "nroDocumento")
-	private Cliente cliente;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer idVenta;
+	
+	@ManyToOne
+	@JoinColumn(name = "codProducto")
+	private Producto producto;
+	
+	@ManyToOne
+	@JoinColumn(name = "idCliente")
+	private Cliente cliente;
 	
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

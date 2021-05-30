@@ -16,5 +16,5 @@ public interface IClienteDAO extends CrudRepository<Cliente, Integer>{
 	public List<Cliente> obtenerClientes();
 	public Optional<Cliente> findByNroDocumento(int dni);
 	
-	
+	public Optional<Cliente> findByEmail(String email);
 }

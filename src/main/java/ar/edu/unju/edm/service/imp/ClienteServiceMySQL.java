@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.model.Cliente;
@@ -23,6 +24,9 @@ public class ClienteServiceMySQL implements IClienteService{
 	@Override
 	public void guardarCliente(Cliente unCliente) {
 		// TODO Auto-generated method stub
+		String pw = unCliente.getPassword();
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+		unCliente.setPassword(bCryptPasswordEncoder.encode(pw));
 		clienteDAO.save(unCliente);
 	}
 
@@ -53,14 +57,12 @@ public class ClienteServiceMySQL implements IClienteService{
 	}
 	
 	private void cambiarCliente(Cliente desde, Cliente hacia) {
-		//observen que vamos a pasar todos los atributos del cliente que viene, hacia el cliente que ya está en la BD
 		hacia.setApellido(desde.getApellido());
 		hacia.setNombre(desde.getNombre());
 		hacia.setFechaNacimiento(desde.getFechaNacimiento());
 		hacia.setCodigoAreaTelefono(desde.getCodigoAreaTelefono());
 		hacia.setNumTelefono(desde.getNumTelefono());
 		hacia.setEmail(desde.getEmail());
-		//observen que NO se ha cambiado el id, ya que ese atributo no debería permitirse cambiar
 	}
 
 	@Override

@@ -30,6 +30,8 @@ public class ClienteController {
 	public String cargarCliente(Model model) {
 		model.addAttribute("unCliente", clienteService.crearCliente());
 		model.addAttribute("clientes", clienteService.obtenerTodosClientes());
+		//UserDetails userCliente = (UserDetails) authentication.getPrincipal();
+				//System.out.println(userCliente.getUsername());
 		return("cliente");
 	}
 	
