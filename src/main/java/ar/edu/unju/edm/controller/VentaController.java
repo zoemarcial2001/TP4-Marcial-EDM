@@ -46,7 +46,7 @@ public class VentaController {
 			productoSeleccionado = productoService.encontrarUnProducto(codigo);
 			venta = iVentaService.crearVenta();		
 			venta.setProducto(productoSeleccionado);
-			model.addAttribute("venta",venta);
+			model.addAttribute("venta", venta);
 			model.addAttribute("clientes",clienteService.obtenerTodosClientes());
 		}
 		catch (Exception e) {

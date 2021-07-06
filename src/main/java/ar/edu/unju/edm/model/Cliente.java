@@ -57,11 +57,24 @@ public class Cliente {
 	private LocalDate fechaUltimaCompra;
 	@Column
 	private String password;
+	@Column
+	private byte[] fotografia;
 
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public byte[] getFotografia() {
+		return fotografia;
+	}
+
+
+	public void setFotografia(byte[] fotografia) {
+		this.fotografia = fotografia;
+	}
+
+
 	public Integer getIdCliente() {
 		return idCliente;
 	}

@@ -4,6 +4,7 @@ package ar.edu.unju.edm.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -26,6 +27,9 @@ public class Producto {
 	private int stock;
 	@Column
 	private String descripcion;
+	@Lob
+	@Column(name = "prod_imagen", columnDefinition = "LONGBLOB")
+	private String imagen;
 	
 	//listado de ventas no obligatorio 
 	//@ManyToOne(cascade = CascadeType.ALL)
@@ -34,14 +38,15 @@ public class Producto {
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public Producto(int codProducto, String nombre, double precio, String marca, int stock) {
-		super();
-		this.codProducto = codProducto;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.marca = marca;
-		this.stock = stock;
+	public String getImagen() {
+		return imagen;
+	}
+
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public int getCodProducto() {
